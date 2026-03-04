@@ -1,0 +1,38 @@
+[
+    {
+        "ingredientPattern": "WMW,CBF",
+        "ingredients": {
+            "W": {
+                "type": "block",
+                "code": "game:water-still-7"
+            },
+            "M": {
+                "type": "item",
+                "code": "game:powder-iron-oxide",
+                "quantity": 8
+            },
+            "B": {
+                "type": "item",
+                "code": "game:blastingpowder",
+                "quantity": 4
+            },
+            "C": {
+                "type": "item",
+                "code": "game:flaxtwine"
+            },
+            "F": {
+                "type": "block",
+                "code": "game:linen-*"
+            }
+        },
+        "name": "moatbomb",
+        "width": 3,
+        "height": 2,
+        "shapeless": true,
+        "output": {
+            "type": "block",
+            "code": "moatbomb:moatbomb",
+            "quantity": 8
+        }
+    }
+]
