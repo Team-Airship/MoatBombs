@@ -1,38 +1,55 @@
 [
-    {
-        "ingredientPattern": "WMW,CBF",
-        "ingredients": {
-            "W": {
-                "type": "block",
-                "code": "game:water-still-7"
-            },
-            "M": {
-                "type": "item",
-                "code": "game:powder-iron-oxide",
-                "quantity": 8
-            },
-            "B": {
-                "type": "item",
-                "code": "game:blastingpowder",
-                "quantity": 4
-            },
-            "C": {
-                "type": "item",
-                "code": "game:flaxtwine"
-            },
-            "F": {
-                "type": "block",
-                "code": "game:linen-*"
-            }
-        },
-        "name": "moatbomb",
-        "width": 3,
-        "height": 2,
-        "shapeless": true,
-        "output": {
-            "type": "block",
-            "code": "moatbomb:moatbomb",
-            "quantity": 8
-        }
-    }
+  {
+	ingredientPattern: "DED,ASA,DUD",
+	ingredients: {
+
+		"D": { type: "item", code: "game:clay-fire", quantity: 1 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "game:powder-iron-oxide", quantity: 4 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 4 },
+		"U": { type: "block", code: "game:woodbucket", quantity: 4 }
+	},
+	recipegroup: 2,
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: true,
+	output: { type: "block", code: "moatbomb:moatbomb-t1", quantity: 4 }
+	},
+  {
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "item", code: "game:clay-fire", quantity: 2 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "game:powder-iron-oxide", quantity: 12 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 6 },
+		"D": { type: "item", code: "game:plank-*", quantity: 12 },
+		"U": { type: "item", code: "game:metalnailsandstrips-*", quantity: 2 }
+	},
+	recipegroup: 2,
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: true,
+	output: { type: "block", code: "moatbomb:moatbomb-t2", quantity: 4 }
+	},
+  {
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "block", code: "game:metal-parts", quantity: 2 },
+		"E": { type: "item", code: "game:gear-rusty", quantity: 4 },
+		"A": { type: "item", code: "game:powder-iron-oxide", quantity: 16 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 8 },
+		"D": { type: "item", code: "game:metalplate-iron", quantity: 1 },
+		"U": { type: "item", code: "game:calcined-flint", quantity: 1 }
+	},
+	recipegroup: 2,
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: true,
+	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 4 }
+	},
 ]

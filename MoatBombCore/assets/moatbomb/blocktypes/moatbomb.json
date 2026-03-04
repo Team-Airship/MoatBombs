@@ -2,9 +2,20 @@
     "code": "moatbomb",
     "class": "BlockMoatBomb",
     "entityClass": "BlockEntityMoatBomb",
+    	"variantgroups": [
+		{ "code": "tier", "states": ["t1", "t2", "t3"] }
+	],
     "attributes": {
-        "blastRadius": 4,
-        "injureRadius": 10,
+       "blastRadiusByType": {
+			  "*-t1": 5,
+			  "*-t2": 7,
+			  "*-t3": 8
+		   },
+       "injureRadiusByType": {
+			  "*-t1": 7,
+			  "*-t2": 9,
+			  "*-t3": 10
+		   },
         "blastType": 1
     },
     "storageFlags": 5,
@@ -13,21 +24,20 @@
             "name": "Unstable"
         }
     ],
-    "shape": {
-        "base": "game:block/cloth/bomb-stone"
-    },
+    "shape": { "base": "moatbomb-{tier}" },
     "sidesolid": {
         "all": false
     },
     "sideopaque": {
         "all": false
     },
-    "blockmaterial": "Cloth",
+    "blockmaterialByType": {
+			  "*-t1": "Wood",
+			  "*-t2": "Wood",
+			  "*-t3": "Metal"
+		   },
     "creativeinventory": {
         "general": [
-            "*"
-        ],
-        "decorative": [
             "*"
         ]
     },
@@ -50,29 +60,33 @@
         "y2": 0.5,
         "z2": 0.6875
     },
-    "sounds": {
-        "place": "game:block/cloth",
-        "walk": "game:walk/cloth"
+	"soundsByType": {
+		"*-t1": {
+			"place": "game:block/wood",
+			"break": "game:block/wood",
+			"hit": "game:block/wood",
+			"walk": "game:walk/wood"
+		},
+		"*-t2": {
+			"place": "game:block/wood",
+			"break": "game:block/wood",
+			"hit": "game:block/wood",
+			"walk": "game:walk/wood"
+		},
+		"*-t3": {
+			"place": "game:block/metal",
+			"break": "game:block/metal",
+			"hit": "game:block/metal",
+			"walk": "game:walk/metal"
+		}
     },
     "materialDensity": 200,
-    "guiTransform": {
-        "translation": {
-            "x": 1,
-            "y": 0,
-            "z": 0
-        },
-        "rotation": {
-            "x": -26,
-            "y": -22,
-            "z": -23
-        },
-        "origin": {
-            "x": 0.5,
-            "y": 0.27,
-            "z": 0.5
-        },
-        "scale": 2.25
-    },
+    guiTransform: {
+		  translation: { x: 1, y: 5, z: 0 },
+		  rotation: { x: -26, y: -22, z: -23 },
+		  origin: { x: 0.5, y: 0.27, z: 0.5 },
+		  scale: 1.7
+	  },
     "fpHandTransform": {
         "rotation": {
             "x": -19,

@@ -1,3 +1,8 @@
 {
-    "block-moatbomb": "Moat Bomb"
+  "moatbomb:block-moatbomb-t1": "Bucket Bomb",
+  "moatbomb:blockdesc-moatbomb-t1": "A tier-1 'Moat-bomb', Auto-floods almost any block space within the (5 blocks) blast radius below sea-level.",
+	"moatbomb:block-moatbomb-t2": "Barrel Bomb",
+	"moatbomb:blockdesc-moatbomb-t2": "A tier-2 'Moat-bomb', Auto-floods almost any block space within the (7 blocks) blast radius below sea-level.",
+	"moatbomb:block-moatbomb-t3": "Chamber Bomb",
+	"moatbomb:blockdesc-moatbomb-t3": "A tier-3 'Moat-bomb', Auto-floods almost any block space within the (8 blocks) blast radius below sea-level. Contains a springwound detonator so it doesn't need a firesource. Perfect for underwater use."
 }

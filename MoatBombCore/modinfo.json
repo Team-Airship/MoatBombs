@@ -3,10 +3,13 @@
   "modid": "moatbomb",
   "name": "MoatBomb",
   "authors": [
-    "Sergey"
+    "Rivvion",
+    "TygrysT",
+    "Freakyuser396",
+    "Pal-5000 / Hyperion"
   ],
-  "description": "Adds a new MoatBomb that destroys blocks and generates water if exploded below sea level, perfect for building canals.",
-  "version": "1.0.0",
+  "description": "Adds three new bombs that destroy blocks and generates water within it's radius only on layers below sea level, perfect tool for building boat canals.",
+  "version": "1.1.1",
   "dependencies": {
     "game": "1.21.5"
   }
