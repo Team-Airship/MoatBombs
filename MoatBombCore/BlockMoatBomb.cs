@@ -47,12 +47,81 @@ namespace MoatBomb
             BlockEntityMoatBomb bebomb = byEntity.World.BlockAccessor.GetBlockEntity(pos) as BlockEntityMoatBomb;
             if (bebomb == null || bebomb.IsLit) return EnumIgniteState.NotIgnitablePreventDefault;
 
+            if (Attributes?["igniteItem"]?.Exists == true) return EnumIgniteState.NotIgnitablePreventDefault;
+
             if (secondsIgniting > 0.75f)
             {
                 return EnumIgniteState.IgniteNow;
             }
 
             return EnumIgniteState.Ignitable;
+        }
+
+        public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+        {
+            if (blockSel == null) return base.OnBlockInteractStart(world, byPlayer, blockSel);
+            
+            BlockEntityMoatBomb bebomb = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityMoatBomb;
+            if (bebomb == null || bebomb.IsLit) return base.OnBlockInteractStart(world, byPlayer, blockSel);
+
+            string igniteItem = Attributes?["igniteItem"]?.AsString();
+            if (igniteItem != null)
+            {
+                ItemSlot handSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
+                bool isMatch = false;
+                if (igniteItem == "empty")
+                {
+                    if (handSlot.Empty) isMatch = true;
+                }
+                else if (!handSlot.Empty)
+                {
+                    isMatch = WildcardUtil.Match(new AssetLocation(igniteItem), handSlot.Itemstack.Collectible.Code);
+                }
+
+                if (isMatch)
+                {
+                    return true;
+                }
+            }
+
+            return base.OnBlockInteractStart(world, byPlayer, blockSel);
+        }
+
+        public override bool OnBlockInteractStep(float secondsUsed, IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+        {
+            if (blockSel == null) return false;
+
+            BlockEntityMoatBomb bebomb = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityMoatBomb;
+            if (bebomb == null || bebomb.IsLit) return false;
+
+            string igniteItem = Attributes?["igniteItem"]?.AsString();
+            if (igniteItem != null)
+            {
+                if (world.Side == EnumAppSide.Client)
+                {
+                    BlockEntityMoatBomb.smallSparks.MinPos.Set(blockSel.Position.X + 0.45, blockSel.Position.Y + 0.53, blockSel.Position.Z + 0.45);
+                    world.SpawnParticles(BlockEntityMoatBomb.smallSparks);
+                }
+
+                if (secondsUsed > 0.75f)
+                {
+                    return false;
+                }
+                return true;
+            }
+
+            return false;
+        }
+
+        public override void OnBlockInteractStop(float secondsUsed, IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+        {
+            if (blockSel == null) return;
+            string igniteItem = Attributes?["igniteItem"]?.AsString();
+            if (igniteItem != null && secondsUsed >= 0.7f)
+            {
+                BlockEntityMoatBomb bebomb = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityMoatBomb;
+                bebomb?.OnIgnite(byPlayer);
+            }
         }
 
         public void OnTryIgniteBlockOver(EntityAgent byEntity, BlockPos pos, float secondsIgniting, ref EnumHandling handling)

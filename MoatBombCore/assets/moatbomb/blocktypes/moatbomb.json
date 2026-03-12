@@ -16,7 +16,10 @@
 			  "*-t2": 9,
 			  "*-t3": 10
 		   },
-        "blastType": 1
+        "blastType": 1,
+        "igniteItemByType": {
+            "*-t3": "empty"
+        }
     },
     "storageFlags": 5,
     "behaviors": [
@@ -81,11 +84,11 @@
 		}
     },
     "materialDensity": 200,
-    guiTransform: {
-		  translation: { x: 1, y: 5, z: 0 },
-		  rotation: { x: -26, y: -22, z: -23 },
-		  origin: { x: 0.5, y: 0.27, z: 0.5 },
-		  scale: 1.7
+    "guiTransform": {
+		  "translation": { "x": 1, "y": 5, "z": 0 },
+		  "rotation": { "x": -26, "y": -22, "z": -23 },
+		  "origin": { "x": 0.5, "y": 0.27, "z": 0.5 },
+		  "scale": 1.7
 	  },
     "fpHandTransform": {
         "rotation": {

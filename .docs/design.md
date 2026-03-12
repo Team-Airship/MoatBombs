@@ -24,12 +24,29 @@ If you wish to change the stats of the MoatBomb (like blast radius or damage), y
 
 Specifically, you can modify the properties inside the `attributes` block:
 ```json
-	"attributes": {
-		"blastRadius": 4,
-		"injureRadius": 10,
-		"blastType": 1
-	},
+    "attributes": {
+       "blastRadiusByType": {
+              "*-t1": 5,
+              "*-t2": 7,
+              "*-t3": 8
+           },
+       "injureRadiusByType": {
+              "*-t1": 7,
+              "*-t2": 9,
+              "*-t3": 10
+           },
+        "blastType": 1,
+        "igniteItemByType": {
+            "*-t3": "empty"
+        }
+    },
 ```
+
+### Ignition Mechanics
+By default, standard firestarters and torches can ignite the bomb. However, you can restrict or change what item is required to ignite it using the `igniteItem` or `igniteItemByType` attribute in the JSON configuration. 
+- Using `"igniteItem": "empty"` will allow the player to ignite the bomb with an empty hand.
+- Using a wildcard like `"igniteItem": "game:stick"` will restrict ignition specifically to items matching that code.
+- Omit the attribute entirely to use the game's default firestarter rules.
 
 ## Author
 Sergey

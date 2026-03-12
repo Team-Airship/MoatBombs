@@ -154,8 +154,8 @@ namespace MoatBomb
                         Block currentBlock = sapi.World.BlockAccessor.GetBlock(currentPos, BlockLayersAccess.Solid);
                         Block currentFluid = sapi.World.BlockAccessor.GetBlock(currentPos, BlockLayersAccess.Fluid);
                         
-                        // If it's air (id 0) and not already a fluid, replace it with water
-                        if (currentBlock.Id == 0 && currentFluid.Id == 0)
+                        // If it's air (id 0) and either not a fluid, or it's water (but not already still water), replace it with water
+                        if (currentBlock.Id == 0 && (currentFluid.Id == 0 || (currentFluid.Code != null && currentFluid.Code.Path.StartsWith("water") && currentFluid.Code.Path != "water-still-7")))
                         {
                             sapi.World.BlockAccessor.SetBlock(waterBlock.BlockId, currentPos);
                         }
