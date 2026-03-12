@@ -48,5 +48,10 @@ By default, standard firestarters and torches can ignite the bomb. However, you 
 - Using a wildcard like `"igniteItem": "game:stick"` will restrict ignition specifically to items matching that code.
 - Omit the attribute entirely to use the game's default firestarter rules.
 
+You can also control exactly how long it takes for a player to activate the MoatBomb by specifying the `igniteTime` property. This defaults to `0.75` (seconds). 
+```json
+"igniteTime": 2.5
+```
+
 ## Author
 Sergey

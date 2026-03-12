@@ -19,6 +19,10 @@
         "blastType": 1,
         "igniteItemByType": {
             "*-t3": "empty"
+        },
+        "dropQuantityMultiplier": 0,
+        "igniteTimeByType": {
+            "*-t3": 3
         }
     },
     "storageFlags": 5,

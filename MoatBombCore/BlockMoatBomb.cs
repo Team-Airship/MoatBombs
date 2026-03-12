@@ -49,7 +49,9 @@ namespace MoatBomb
 
             if (Attributes?["igniteItem"]?.Exists == true) return EnumIgniteState.NotIgnitablePreventDefault;
 
-            if (secondsIgniting > 0.75f)
+            float igniteTime = Attributes?["igniteTime"]?.AsFloat(0.75f) ?? 0.75f;
+
+            if (secondsIgniting > igniteTime)
             {
                 return EnumIgniteState.IgniteNow;
             }
@@ -103,7 +105,8 @@ namespace MoatBomb
                     world.SpawnParticles(BlockEntityMoatBomb.smallSparks);
                 }
 
-                if (secondsUsed > 0.75f)
+                float igniteTime = Attributes?["igniteTime"]?.AsFloat(0.75f) ?? 0.75f;
+                if (secondsUsed > igniteTime)
                 {
                     return false;
                 }
@@ -117,7 +120,9 @@ namespace MoatBomb
         {
             if (blockSel == null) return;
             string igniteItem = Attributes?["igniteItem"]?.AsString();
-            if (igniteItem != null && secondsUsed >= 0.7f)
+            float igniteTime = Attributes?["igniteTime"]?.AsFloat(0.75f) ?? 0.75f;
+            
+            if (igniteItem != null && secondsUsed >= igniteTime - 0.05f)
             {
                 BlockEntityMoatBomb bebomb = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityMoatBomb;
                 bebomb?.OnIgnite(byPlayer);
@@ -126,7 +131,8 @@ namespace MoatBomb
 
         public void OnTryIgniteBlockOver(EntityAgent byEntity, BlockPos pos, float secondsIgniting, ref EnumHandling handling)
         {
-            if (secondsIgniting < 0.7f) return;
+            float igniteTime = Attributes?["igniteTime"]?.AsFloat(0.75f) ?? 0.75f;
+            if (secondsIgniting < igniteTime - 0.05f) return;
 
             handling = EnumHandling.PreventDefault;
 
@@ -142,12 +148,28 @@ namespace MoatBomb
         {
             BlockEntityMoatBomb bebomb = world.BlockAccessor.GetBlockEntity(pos) as BlockEntityMoatBomb;
             bebomb?.OnBlockExploded(pos, ignitedByPlayerUid);
+
+            float jsonMultiplier = Attributes?["dropQuantityMultiplier"]?.AsFloat(1) ?? 1f;
+
+            if (jsonMultiplier <= 0)
+            {
+                world.BulkBlockAccessor.SetBlock(0, pos);
+                return;
+            }
+
+            base.OnBlockExploded(world, pos, explosionCenter, blastType, ignitedByPlayerUid);
         }
 
         public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
         {
             BlockEntityMoatBomb bebomb = world.BlockAccessor.GetBlockEntity(pos) as BlockEntityMoatBomb;
             if (bebomb != null && bebomb.CascadeLit) return System.Array.Empty<ItemStack>();
+
+            float jsonMultiplier = Attributes?["dropQuantityMultiplier"]?.AsFloat(1) ?? 1f;
+            if (jsonMultiplier <= 0)
+            {
+                return System.Array.Empty<ItemStack>();
+            }
 
             var stacks = base.GetDrops(world, pos, byPlayer, dropQuantityMultiplier);
             

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
@@ -127,10 +128,29 @@ namespace MoatBomb
             
             if (sapi != null)
             {
-                sapi.World.CreateExplosion(Pos, BlastType, radius, InjureRadius, 1f, ignitedByPlayerUid);
+                float dropMult = Block.Attributes?["dropQuantityMultiplier"]?.AsFloat(1) ?? 1f;
+                sapi.World.CreateExplosion(Pos, BlastType, radius, InjureRadius, dropMult, ignitedByPlayerUid);
                 
                 // After the explosion, schedule a callback to replace air blocks below sea level with water
                 sapi.World.RegisterCallback((deltaTime) => ReplaceWithWater(centerPos, radius, sapi), 50);
+
+                // If drops are disabled, forcefully eradicate them from the world within the blast zone milliseconds after explosion
+                if (dropMult <= 0)
+                {
+                    sapi.World.RegisterCallback((dtInner) => ClearDrops(centerPos, radius, sapi), 100);
+                }
+            }
+        }
+        
+        private void ClearDrops(BlockPos center, float radius, ICoreServerAPI sapi)
+        {
+            var entities = sapi.World.GetEntitiesAround(center.ToVec3d(), radius + 2, radius + 2);
+            foreach (var entity in entities)
+            {
+                if (entity is EntityItem)
+                {
+                    entity.Die(EnumDespawnReason.Death);
+                }
             }
         }
         
