@@ -31,7 +31,7 @@
             "*-t3": 1.0
         },
         "igniteAnimationParticlesByType": {
-            "*-t3": false
+            "*-t3": true
         },
         "interactAnimationByType": {
             "*-t3": "interact"

@@ -1,6 +1,6 @@
 {
 	"editor": {
-		"collapsedPaths": "Root/TIER 2 AIRSHIP/small round barrel3,Root/TIER 2 AIRSHIP/small round barrel2,Root/TIER 2 AIRSHIP/prop frame E,Root/TIER 2 AIRSHIP/RIGGING PIVOT 1,Root/TIER 2 AIRSHIP/RIGGING PIVOT 2,Root/TIER 2 AIRSHIP/RIGGING PIVOT 3,Root/TIER 2 AIRSHIP/root player,Root/Middle/tube 1,Root/TIER 2 AIRSHIP/prop metal rudder,Root/Middle/wire1,Root/TIER 2 AIRSHIP/All ropes,Root/TIER 2 AIRSHIP/Propeller asset,Root/small round barrel2/barrel top bottom2,Root/TIER 2 AIRSHIP/Hose pipe,Root/TIER 2 AIRSHIP/beams all,Root/small round barrel2/barrel all sides2,Root/torptube/torphatch,Root/TIER 2 AIRSHIP/hose end 1,Root/TIER 2 AIRSHIP/BEAR BOAT,Root/TIER 2 AIRSHIP/small round barrel,Root/TIER 2 AIRSHIP/heat hose pivot,Root/TIER 2 AIRSHIP/prop metal shaft,Root/TIER 2 AIRSHIP/prop throttle",
+		"collapsedPaths": "Root/TIER 2 AIRSHIP/small round barrel3,Root/TIER 2 AIRSHIP/small round barrel2,Root/TIER 2 AIRSHIP/RIGGING PIVOT 1,Root/TIER 2 AIRSHIP/RIGGING PIVOT 2,Root/TIER 2 AIRSHIP/hose end 1,Root/TIER 2 AIRSHIP/prop frame E,Root/TIER 2 AIRSHIP/BEAR BOAT,Root/TIER 2 AIRSHIP/prop metal rudder,Root/TIER 2 AIRSHIP/All ropes,Root/TIER 2 AIRSHIP/small round barrel,Root/small round barrel2/barrel top bottom2,Root/TIER 2 AIRSHIP/Hose pipe,Root/TIER 2 AIRSHIP/heat hose pivot,Root/TIER 2 AIRSHIP/RIGGING PIVOT 3,Root/TIER 2 AIRSHIP/beams all,Root/small round barrel2/barrel all sides2,Root/TIER 2 AIRSHIP/prop throttle,Root/TIER 2 AIRSHIP/root player,Root/Middle/wire1,Root/TIER 2 AIRSHIP/Propeller asset,Root/TIER 2 AIRSHIP/prop metal shaft,Root/Middle/tube 1",
 		"allAngles": false,
 		"entityTextureMode": false
 	},
@@ -675,9 +675,9 @@
 							"children": [
 								{
 									"name": "TopValve",
-									"from": [ -1.25, 0.0, 0.0 ],
-									"to": [ 0.75, 0.5, 0.5 ],
-									"rotationOrigin": [ -1.25, 0.25, 0.25 ],
+									"from": [ -1.95, 0.0, 0.0 ],
+									"to": [ 0.05, 0.5, 0.5 ],
+									"rotationOrigin": [ -1.95, 0.25, 0.25 ],
 									"rotationX": 17.0,
 									"faces": {
 										"north": { "texture": "#tinbronze", "uv": [ 11.5, 5.5, 13.5, 6.0 ], "windMode": [-1,-1,-1,-1] },
@@ -1407,36 +1407,30 @@
 	],
 	"animations": [
 		{
-			"name": "Shield test",
-			"code": "shieldtest",
-			"quantityframes": 30,
-			"onActivityStopped": "EaseOut",
-			"onAnimationEnd": "EaseOut",
+			"name": "interact",
+			"code": "interact",
+			"quantityframes": 91,
+			"onActivityStopped": "Rewind",
+			"onAnimationEnd": "Hold",
 			"keyframes": [
 				{
 					"frame": 0,
 					"elements": {
-						"torphatch": { "rotationX": 0.0, "rotationY": 0.0, "rotationZ": 0.0 },
 						"TopValve": { "offsetX": 0.0, "offsetY": 0.0, "offsetZ": 0.0, "rotationX": 0.0, "rotationY": 0.0, "rotationZ": 0.0 }
 					}
 				},
 				{
-					"frame": 18,
+					"frame": 85,
 					"elements": {
-						"TopValve": { "offsetX": -0.5, "offsetY": 0.0, "offsetZ": 0.0, "rotationX": -360.0, "rotationY": 0.0, "rotationZ": 0.0 }
+						"TopValve": { "offsetX": 0.7, "offsetY": 0.0, "offsetZ": 0.0, "rotationX": 1080.0, "rotationY": 0.0, "rotationZ": 0.0 },
+						"TopValve": { "offsetX": 0.7, "offsetY": 0.0, "offsetZ": 0.0, "rotationX": 1080.0, "rotationY": 0.0, "rotationZ": 0.0 }
 					}
 				},
 				{
-					"frame": 20,
+					"frame": 90,
 					"elements": {
-						"torphatch": { "rotationX": 0.0, "rotationY": 0.0, "rotationZ": 0.0 },
-						"TopValve": { "offsetX": -0.5, "offsetY": 0.0, "offsetZ": 0.0, "rotationX": -360.0, "rotationY": 0.0, "rotationZ": 0.0 }
-					}
-				},
-				{
-					"frame": 29,
-					"elements": {
-						"torphatch": { "rotationX": 0.0, "rotationY": 0.0, "rotationZ": -110.0 }
+						"TopValve": { "offsetX": 1.0, "offsetY": 0.0, "offsetZ": 0.0, "rotationX": 1000.0, "rotationY": 0.0, "rotationZ": 0.0 },
+						"TopValve": { "offsetX": 1.0, "offsetY": 0.0, "offsetZ": 0.0, "rotationX": 1000.0, "rotationY": 0.0, "rotationZ": 0.0 }
 					}
 				}
 			]
