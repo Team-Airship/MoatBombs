@@ -23,12 +23,30 @@
         "dropQuantityMultiplier": 0,
         "igniteTimeByType": {
             "*-t3": 3
+        },
+        "igniteAnimationByType": {
+            "*-t3": "ignite"
+        },
+        "igniteAnimationSpeedByType": {
+            "*-t3": 1.0
+        },
+        "igniteAnimationParticlesByType": {
+            "*-t3": false
+        },
+        "interactAnimationByType": {
+            "*-t3": "interact"
+        },
+        "interactAnimationParticlesByType": {
+            "*-t3": false
         }
     },
     "storageFlags": 5,
     "behaviors": [
         {
             "name": "Unstable"
+        },
+        {
+            "name": "Animatable"
         }
     ],
     "shape": { "base": "moatbomb-{tier}" },

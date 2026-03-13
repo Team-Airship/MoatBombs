@@ -82,6 +82,7 @@ namespace MoatBomb
 
                 if (isMatch)
                 {
+                    bebomb.StartInteractAnimation();
                     return true;
                 }
             }
@@ -101,8 +102,11 @@ namespace MoatBomb
             {
                 if (world.Side == EnumAppSide.Client)
                 {
-                    BlockEntityMoatBomb.smallSparks.MinPos.Set(blockSel.Position.X + 0.45, blockSel.Position.Y + 0.53, blockSel.Position.Z + 0.45);
-                    world.SpawnParticles(BlockEntityMoatBomb.smallSparks);
+                    if (bebomb.PlayInteractParticles)
+                    {
+                        BlockEntityMoatBomb.smallSparks.MinPos.Set(blockSel.Position.X + 0.45, blockSel.Position.Y + 0.53, blockSel.Position.Z + 0.45);
+                        world.SpawnParticles(BlockEntityMoatBomb.smallSparks);
+                    }
                 }
 
                 float igniteTime = Attributes?["igniteTime"]?.AsFloat(0.75f) ?? 0.75f;
@@ -122,10 +126,17 @@ namespace MoatBomb
             string igniteItem = Attributes?["igniteItem"]?.AsString();
             float igniteTime = Attributes?["igniteTime"]?.AsFloat(0.75f) ?? 0.75f;
             
-            if (igniteItem != null && secondsUsed >= igniteTime - 0.05f)
+            if (igniteItem != null)
             {
                 BlockEntityMoatBomb bebomb = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityMoatBomb;
-                bebomb?.OnIgnite(byPlayer);
+                if (bebomb != null)
+                {
+                    bebomb.StopInteractAnimation();
+                    if (secondsUsed >= igniteTime - 0.05f)
+                    {
+                        bebomb.OnIgnite(byPlayer);
+                    }
+                }
             }
         }
 

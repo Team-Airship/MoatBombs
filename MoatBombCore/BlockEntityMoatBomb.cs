@@ -16,6 +16,15 @@ namespace MoatBomb
         bool lit;
         string ignitedByPlayerUid;
 
+        protected string igniteAnim;
+        protected float inspireAnimSpeed = 1f;
+        protected bool playSparks = true;
+        protected AnimationMetaData animMeta;
+
+        protected string interactAnim;
+        protected bool playInteractSparks = true;
+        protected AnimationMetaData interactAnimMeta;
+
         float blastRadius;
         float injureRadius;
 
@@ -86,6 +95,51 @@ namespace MoatBomb
             blastRadius = Block.Attributes?["blastRadius"]?.AsInt(4) ?? 4;
             injureRadius = Block.Attributes?["injureRadius"]?.AsInt(8) ?? 8;
             blastType = (EnumBlastType)(Block.Attributes?["blastType"]?.AsInt((int)EnumBlastType.OreBlast) ?? (int)EnumBlastType.OreBlast);
+
+            igniteAnim = Block.Attributes?["igniteAnimation"]?.AsString();
+            inspireAnimSpeed = Block.Attributes?["igniteAnimationSpeed"]?.AsFloat(1f) ?? 1f;
+            playSparks = Block.Attributes?["igniteAnimationParticles"]?.AsBool(true) ?? true;
+
+            interactAnim = Block.Attributes?["interactAnimation"]?.AsString();
+            playInteractSparks = Block.Attributes?["interactAnimationParticles"]?.AsBool(true) ?? true;
+
+            if (igniteAnim != null)
+            {
+                animMeta = new AnimationMetaData()
+                {
+                    Code = igniteAnim,
+                    Animation = igniteAnim,
+                    AnimationSpeed = inspireAnimSpeed,
+                    EaseInSpeed = 10,
+                    EaseOutSpeed = 10
+                };
+            }
+
+            if (interactAnim != null)
+            {
+                interactAnimMeta = new AnimationMetaData()
+                {
+                    Code = interactAnim,
+                    Animation = interactAnim,
+                    AnimationSpeed = 1.0f,
+                    EaseInSpeed = 10,
+                    EaseOutSpeed = 10
+                };
+            }
+        }
+
+        public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
+        {
+            if (Api.Side == EnumAppSide.Client && igniteAnim != null)
+            {
+                var animUtil = GetBehavior<BEBehaviorAnimatable>()?.animUtil;
+                if (animUtil != null && animUtil.animator == null)
+                {
+                    animUtil.InitializeAnimator("moatbomb-" + Block.Variant["tier"], null, null, new Vec3f(0f, 0f, 0f));
+                }
+            }
+
+            return base.OnTesselation(mesher, tessThreadTesselator);
         }
 
         private void OnTick(float dt)
@@ -101,8 +155,11 @@ namespace MoatBomb
 
                 if (Api.Side == EnumAppSide.Client)
                 {
-                    smallSparks.MinPos.Set(Pos.X + 0.45, Pos.Y + 0.53, Pos.Z + 0.45);
-                    Api.World.SpawnParticles(smallSparks);
+                    if (playSparks)
+                    {
+                        smallSparks.MinPos.Set(Pos.X + 0.45, Pos.Y + 0.53, Pos.Z + 0.45);
+                        Api.World.SpawnParticles(smallSparks);
+                    }
                 }
             }
         }
@@ -221,6 +278,27 @@ namespace MoatBomb
             get { return lit; }
         }
 
+        public void StartInteractAnimation()
+        {
+            if (Api.Side == EnumAppSide.Client && interactAnimMeta != null)
+            {
+                GetBehavior<BEBehaviorAnimatable>()?.animUtil?.StartAnimation(interactAnimMeta);
+            }
+        }
+
+        public void StopInteractAnimation()
+        {
+            if (Api.Side == EnumAppSide.Client && interactAnimMeta != null)
+            {
+                GetBehavior<BEBehaviorAnimatable>()?.animUtil?.StopAnimation(interactAnimMeta.Code);
+            }
+        }
+
+        public bool PlayInteractParticles
+        {
+            get { return playInteractSparks; }
+        }
+
         internal void OnIgnite(IPlayer byPlayer)
         {
             if (lit) return;
@@ -229,6 +307,12 @@ namespace MoatBomb
             lit = true;
             RemainingSeconds = FuseTimeSeconds;
             ignitedByPlayerUid = byPlayer?.PlayerUID;
+            
+            if (Api.Side == EnumAppSide.Client && animMeta != null)
+            {
+                GetBehavior<BEBehaviorAnimatable>()?.animUtil?.StartAnimation(animMeta);
+            }
+
             MarkDirty();
         }
 

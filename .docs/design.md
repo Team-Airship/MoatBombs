@@ -53,5 +53,21 @@ You can also control exactly how long it takes for a player to activate the Moat
 "igniteTime": 2.5
 ```
 
+## Custom Animations (Tier 3)
+Tier 3 MoatBombs support custom animations defined in the model shape. These are triggered automatically based on JSON configuration.
+
+### Animation Names
+To use these animations, the modeler must name them exactly as follows in Blockbench:
+- **`interact`**: Plays while the player is actively lighting the bomb.
+- **`ignite`**: Plays after the bomb is successfully lit (the "fuse" phase before detonation).
+
+### Animation Controls (JSON)
+These properties in `moatbomb.json` control how the code interacts with the model:
+- `"igniteAnimation": "ignite"`: The string name of the animation to play when lit.
+- `"igniteAnimationSpeed": 1.0`: Playback speed multiplier for the lit animation.
+- `"igniteAnimationParticles": false`: Set to `false` to hide default sparks while animating.
+- `"interactAnimation": "interact"`: The string name of the animation to play while interacting.
+- `"interactAnimationParticles": false`: Set to `false` to hide sparks during interaction.
+
 ## Author
 Sergey
