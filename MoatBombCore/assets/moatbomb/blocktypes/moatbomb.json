@@ -20,7 +20,7 @@
         "igniteItemByType": {
             "*-t3": "empty"
         },
-        "dropQuantityMultiplier": 0,
+        "dropQuantityMultiplier": 1,
         "igniteTimeByType": {
             "*-t3": 3
         },

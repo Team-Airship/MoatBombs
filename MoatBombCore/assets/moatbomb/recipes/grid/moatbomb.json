@@ -13,7 +13,7 @@
 	name: "moatbomb",
 	width: 3,
 	height: 3,
-	shapeless: true,
+	shapeless: false,
 	output: { type: "block", code: "moatbomb:moatbomb-t1", quantity: 4 }
 	},
   {
@@ -31,7 +31,7 @@
 	name: "moatbomb",
 	width: 3,
 	height: 3,
-	shapeless: true,
+	shapeless: false,
 	output: { type: "block", code: "moatbomb:moatbomb-t2", quantity: 4 }
 	},
   {
@@ -49,7 +49,7 @@
 	name: "moatbomb",
 	width: 3,
 	height: 3,
-	shapeless: true,
+	shapeless: false,
 	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 4 }
 	},
 ]
