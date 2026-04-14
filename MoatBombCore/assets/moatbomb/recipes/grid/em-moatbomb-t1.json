@@ -1,0 +1,70 @@
+[
+ {
+	"RecipeGroup": 1,
+	ingredientPattern: "DED,ASA,DUD",
+	ingredients: {
+
+		"D": { type: "item", code: "game:clay-fire", quantity: 1 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "em:powdered-metal-rusty", quantity: 4 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 4 },
+		"U": { type: "block", code: "game:woodbucket", quantity: 4 }
+	},
+	name: "moatbomb1",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t1", quantity: 8 }
+	},
+ {
+	"RecipeGroup": 2,
+	ingredientPattern: "DED,ASA,DUD",
+	ingredients: {
+
+		"D": { type: "item", code: "game:clay-fire", quantity: 1 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "em:powdered-ore-hematite", quantity: 4 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 4 },
+		"U": { type: "block", code: "game:woodbucket", quantity: 4 }
+	},
+	name: "moatbomb2",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t1", quantity: 8 }
+	},
+ {
+	"RecipeGroup": 3,
+	ingredientPattern: "DED,ASA,DUD",
+	ingredients: {
+
+		"D": { type: "item", code: "game:clay-fire", quantity: 1 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "em:powdered-ore-magnetite", quantity: 4 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 4 },
+		"U": { type: "block", code: "game:woodbucket", quantity: 4 }
+	},
+	name: "moatbomb3",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t1", quantity: 8 }
+	},
+ {
+	"RecipeGroup": 4,
+	ingredientPattern: "DED,ASA,DUD",
+	ingredients: {
+
+		"D": { type: "item", code: "game:clay-fire", quantity: 1 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "em:powdered-ore-limonite", quantity: 4 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 4 },
+		"U": { type: "block", code: "game:woodbucket", quantity: 4 }
+	},
+	name: "moatbomb4",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t1", quantity: 8 }
+	}
+]

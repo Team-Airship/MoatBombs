@@ -1,0 +1,74 @@
+[
+  {
+	"RecipeGroup": 1,
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "item", code: "game:clay-fire", quantity: 2 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "em:powdered-metal-rusty", quantity: 12 }, 
+		"S": { type: "item", code: "game:blastingpowder", quantity: 6 },
+		"D": { type: "item", code: "game:plank-*", quantity: 12 },
+		"U": { type: "item", code: "game:metalnailsandstrips-*", quantity: 2 }
+	},
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t2", quantity: 8 }
+	},
+  {
+	"RecipeGroup": 2,
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "item", code: "game:clay-fire", quantity: 2 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "em:powdered-ore-hematite", quantity: 12 }, 
+		"S": { type: "item", code: "game:blastingpowder", quantity: 6 },
+		"D": { type: "item", code: "game:plank-*", quantity: 12 },
+		"U": { type: "item", code: "game:metalnailsandstrips-*", quantity: 2 }
+	},
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t2", quantity: 8 }
+	},
+  {
+	"RecipeGroup": 3,
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "item", code: "game:clay-fire", quantity: 2 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "em:powdered-ore-magnetite", quantity: 12 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 6 },
+		"D": { type: "item", code: "game:plank-*", quantity: 12 },
+		"U": { type: "item", code: "game:metalnailsandstrips-*", quantity: 2 }
+	},
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t2", quantity: 8 }
+	},
+  {
+	"RecipeGroup": 4,
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "item", code: "game:clay-fire", quantity: 2 },
+		"E": { type: "item", code: "game:flaxtwine", quantity: 1 },
+		"A": { type: "item", code: "em:powdered-ore-limonite", quantity: 12 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 6 },
+		"D": { type: "item", code: "game:plank-*", quantity: 12 },
+		"U": { type: "item", code: "game:metalnailsandstrips-*", quantity: 2 }
+	},
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t2", quantity: 8 }
+	}
+]

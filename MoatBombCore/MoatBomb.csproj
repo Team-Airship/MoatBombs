@@ -58,5 +58,8 @@
       <Private>false</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\moatbomb\patches\" />
+  </ItemGroup>
 
 </Project>

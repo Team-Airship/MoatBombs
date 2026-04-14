@@ -9,12 +9,12 @@
 		"S": { type: "item", code: "game:blastingpowder", quantity: 4 },
 		"U": { type: "block", code: "game:woodbucket", quantity: 4 }
 	},
-	recipegroup: 2,
+	recipegroup: 0,
 	name: "moatbomb",
 	width: 3,
 	height: 3,
 	shapeless: false,
-	output: { type: "block", code: "moatbomb:moatbomb-t1", quantity: 4 }
+	output: { type: "block", code: "moatbomb:moatbomb-t1", quantity: 8 }
 	},
   {
 	ingredientPattern: "HEH,ASA,DUD",
@@ -27,12 +27,12 @@
 		"D": { type: "item", code: "game:plank-*", quantity: 12 },
 		"U": { type: "item", code: "game:metalnailsandstrips-*", quantity: 2 }
 	},
-	recipegroup: 2,
+	recipegroup: 0,
 	name: "moatbomb",
 	width: 3,
 	height: 3,
 	shapeless: false,
-	output: { type: "block", code: "moatbomb:moatbomb-t2", quantity: 4 }
+	output: { type: "block", code: "moatbomb:moatbomb-t2", quantity: 8 }
 	},
   {
 	ingredientPattern: "HEH,ASA,DUD",
@@ -42,14 +42,14 @@
 		"E": { type: "item", code: "game:gear-rusty", quantity: 4 },
 		"A": { type: "item", code: "game:powder-iron-oxide", quantity: 16 },
 		"S": { type: "item", code: "game:blastingpowder", quantity: 8 },
-		"D": { type: "item", code: "game:metalplate-iron", quantity: 1 },
-		"U": { type: "item", code: "game:calcined-flint", quantity: 1 }
+		"U": { type: "item", code: "game:metalplate-iron", quantity: 1 },
+		"D": { type: "item", code: "game:calcined-flint", quantity: 1 }
 	},
-	recipegroup: 2,
+	recipegroup: 0,
 	name: "moatbomb",
 	width: 3,
 	height: 3,
 	shapeless: false,
-	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 4 }
+	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 8 }
 	},
 ]

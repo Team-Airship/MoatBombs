@@ -1,0 +1,78 @@
+[
+  {
+	"enabled": true,
+	"RecipeGroup": 1,
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "block", code: "game:metal-parts", quantity: 2 },
+		"E": { type: "item", code: "game:gear-rusty", quantity: 4 },
+		"A": { type: "item", code: "em:powdered-metal-rusty", quantity: 16 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 8 },
+		"U": { type: "item", code: "game:metalplate-iron", quantity: 1 },
+		"D": { type: "item", code: "game:calcined-flint", quantity: 1 }
+	},
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 8 }
+	},
+  {
+	"enabled": true,
+	"RecipeGroup": 2,
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "block", code: "game:metal-parts", quantity: 2 },
+		"E": { type: "item", code: "game:gear-rusty", quantity: 4 },
+		"A": { type: "item", code: "em:powdered-ore-hematite", quantity: 16 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 8 },
+		"U": { type: "item", code: "game:metalplate-iron", quantity: 1 },
+		"D": { type: "item", code: "game:calcined-flint", quantity: 1 }
+	},
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 8 }
+	},
+  {
+	"enabled": true,
+	"RecipeGroup": 3,
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "block", code: "game:metal-parts", quantity: 2 },
+		"E": { type: "item", code: "game:gear-rusty", quantity: 4 },
+		"A": { type: "item", code: "em:powdered-ore-magnetite", quantity: 16 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 8 },
+		"U": { type: "item", code: "game:metalplate-iron", quantity: 1 },
+		"D": { type: "item", code: "game:calcined-flint", quantity: 1 }
+	},
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 8 }
+	},
+  {
+	"enabled": true,
+	"RecipeGroup": 4,
+	ingredientPattern: "HEH,ASA,DUD",
+	ingredients: {
+
+		"H": { type: "block", code: "game:metal-parts", quantity: 2 },
+		"E": { type: "item", code: "game:gear-rusty", quantity: 4 },
+		"A": { type: "item", code: "em:powdered-ore-limonite", quantity: 16 },
+		"S": { type: "item", code: "game:blastingpowder", quantity: 8 },
+		"U": { type: "item", code: "game:metalplate-iron", quantity: 1 },
+		"D": { type: "item", code: "game:calcined-flint", quantity: 1 }
+	},
+	name: "moatbomb",
+	width: 3,
+	height: 3,
+	shapeless: false,
+	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 8 }
+	}
+]
