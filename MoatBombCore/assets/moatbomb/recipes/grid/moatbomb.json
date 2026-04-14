@@ -51,5 +51,5 @@
 	height: 3,
 	shapeless: false,
 	output: { type: "block", code: "moatbomb:moatbomb-t3", quantity: 8 }
-	},
+	}
 ]
