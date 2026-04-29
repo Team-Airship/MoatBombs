@@ -9,8 +9,8 @@
     "Pal-5000 / Hyperion"
   ],
   "description": "Adds three new bombs that fully destroys blocks and generates water within it's radius only on layers below sea level, perfect tool for building boat canals.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dependencies": {
-    "game": "1.21.6"
+    "game": "1.22.0"
   }
 }
